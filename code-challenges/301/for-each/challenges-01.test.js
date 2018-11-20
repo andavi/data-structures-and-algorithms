@@ -120,7 +120,18 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  const output = [];
+  arr.forEach(element => {
+    let str = '';
+    if (element % 3 === 0) {
+      str += 'Fizz';
+    }
+    if (element % 5 === 0) {
+      str += str ? ' Buzz' : 'Buzz';
+    }
+    output.push(str || element);
+  });
+  return output;
 }
 
 /* ------------------------------------------------------------------------------------------------
