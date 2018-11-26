@@ -76,7 +76,9 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbersByLength = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    return String(a).length - String(b).length;
+  });
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -98,7 +100,11 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a.lastName < b.lastName) return -1;
+    else if (a.lastName > b.lastName) return 1;
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,7 +118,15 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    if (a.lastName < b.lastName) return -1;
+    else if (a.lastName > b.lastName) return 1;
+    else {
+      if (a.firstName < b.firstName) return -1;
+      else if (a.firstName > b.firstName) return 1;
+        return a.age - b.age;
+    }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -138,7 +152,16 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  const table = {
+    Monday: 0,
+    Tuesday: 1,
+    Wednesday: 2,
+    Thursday: 3,
+    Friday: 4,
+    Saturday: 5,
+    Sunday: 6
+  }
+  return arr.sort((a, b) => table[a.dayOfWeek] - table[b.dayOfWeek]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -152,7 +175,22 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+  const table = {
+    Monday: 0,
+    Tuesday: 1,
+    Wednesday: 2,
+    Thursday: 3,
+    Friday: 4,
+    Saturday: 5,
+    Sunday: 6
+  }
+  return arr.sort((a, b) => {
+    if (table[a.dayOfWeek] < table[b.dayOfWeek]) return -1;
+    else if (table[a.dayOfWeek] > table[b.dayOfWeek]) return 1;
+    else {
+      return (a.end - a.start) - (b.end - b.start);
+    }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
