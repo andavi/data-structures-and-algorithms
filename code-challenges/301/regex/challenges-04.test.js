@@ -37,7 +37,7 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  return arr.filter(c => /^[A-J]\w*/.test(c));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,7 +53,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  const regex = /[Oo]ct(ober)?/;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
