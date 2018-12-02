@@ -175,7 +175,7 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  return str.split('').filter(c => !/[aeiou]/gi.test(c)).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
