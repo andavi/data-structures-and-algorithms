@@ -32,7 +32,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  return arr.split('');
 };
 
 
@@ -78,8 +78,10 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
+  const result = recipe.ingredients.map(i => {
+    i = i.slice(i.indexOf(' ') + 1);
+    return i.slice(i.indexOf(' ') + 1);
+  });
   return result;
 }
 
@@ -92,9 +94,7 @@ You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
 const splitFoods = (recipe) => {
-  let result = [];
-  // Solution code here...
-  return result;
+  return recipe.ingredients.map(i => i.split(' ').slice(2).join(' '));
 }
 
 /* ------------------------------------------------------------------------------------------------
