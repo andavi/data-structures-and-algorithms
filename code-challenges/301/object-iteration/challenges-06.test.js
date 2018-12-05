@@ -125,15 +125,13 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  const obj = {};
   arr.forEach(c => {
-    // if (!obj[c.house]){
-      const children = c.children.length;
-      const spouse = c.spouse ? 1 : 0;
-      sizes.push({
-        house: c.house,
-        members: 1 + children + spouse
-      });
+    const children = c.children.length;
+    const spouse = c.spouse ? 1 : 0;
+    sizes.push({
+      house: c.house,
+      members: 1 + children + spouse
+    });
   });
   return sizes;
 }
@@ -157,9 +155,16 @@ For example: [ { house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, .
 const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
-  const survivors = [];
-  // Solution code here...
-  return survivors;
+  const sizes = [];
+  arr.forEach(c => {
+    const children = c.children.length;
+    const spouse = c.spouse && !deceasedSpouses.includes(c.spouse) ? 1 : 0;
+    sizes.push({
+      house: c.house,
+      members: 1 + children + spouse
+    });
+  });
+  return sizes;
 }
 
 /* ------------------------------------------------------------------------------------------------
