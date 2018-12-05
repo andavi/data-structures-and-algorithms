@@ -94,7 +94,10 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  return arr.filter(c => c.name === character)[0].children.length > 0;
+  // return arr.filter(c => c.name === character)[0].children.length > 0;
+  return Object.values(arr.filter(c => c.name === character)[0]).reduce((a, v) => {
+    return a || (typeof v === 'object' && v.length > 0);
+  }, false);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -106,7 +109,8 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  return Object.entries(arr.filter(c => c.name === character)[0])
+    .filter(e => e[0] === 'children')[0][1].length > 0;
 }
 
 /* ------------------------------------------------------------------------------------------------
