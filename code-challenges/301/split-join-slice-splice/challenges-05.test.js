@@ -15,11 +15,7 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  while (str.length) {
-    result.push(str);
-    str = str.slice(1);
-  }
-  result.push('');
+  for (let i = 0; i < str.length + 1; i++) result.push(str.slice(i));
   return result;
 };
 
@@ -78,11 +74,7 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
-  const result = recipe.ingredients.map(i => {
-    i = i.slice(i.indexOf(' ') + 1);
-    return i.slice(i.indexOf(' ') + 1);
-  });
-  return result;
+  return recipe.ingredients.map(i => i.replace(/\d+ \w+(-\w+)? /, ''));
 }
 
 /* ------------------------------------------------------------------------------------------------
