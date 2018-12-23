@@ -42,14 +42,13 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   const results = [];
-  hours.forEach((time, index) => {
-    numCookies = data.reduce((acc, store) => acc + store[index], 0);
+  data.forEach((numCookies, index) => {
     results.push({
       sales: `${numCookies} cookies`,
-      time: time
+      time: hours[index]
     });
   });
-  return result;
+  return results;
 };
 
 /* ------------------------------------------------------------------------------------------------
