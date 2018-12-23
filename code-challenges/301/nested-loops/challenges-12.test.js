@@ -70,7 +70,7 @@ const errands = [
 ]
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  return arr.filter(store => store.store === 'Pet store')[0].items.filter(item => item.name === 'Treats')[0].quantity;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+  return board[row][col] === '#' ? 'hit' : 'miss';
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,7 +104,10 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  return numbers.reduce((acc, row) => {
+    if (row.length === 0) return acc;
+    return row.reduce((a, n) => a * n) * acc;
+  }, 1);
 }
 
 /* ------------------------------------------------------------------------------------------------
