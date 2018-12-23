@@ -150,7 +150,9 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  return weather.reduce((acc, row) => {
+    return Math.min(acc, row.reduce((a, c) => a + c) / row.length);
+  }, 1000);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,7 +168,8 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  const arr = str.split('\n').map(s => s.split(','));
+  return arr.map(a => a.reduce((acc, num) => acc + Number(num), 0));
 }
 
 /* ------------------------------------------------------------------------------------------------
