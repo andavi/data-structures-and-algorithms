@@ -65,7 +65,7 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  return arr.filter(s => s.includes(target));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  return arr.reduce((a, s) => a && s.includes(target), true);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,7 +91,7 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 ------------------------------------------------------------------------------------------------ */
 
 const unenrollBrook = (arr) => {
-  // Solution code here...
+  return arr.map(roster => roster.filter(name => !name.includes('Brook')));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,7 +118,17 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const sortByDay = (arr) => {
-  // Solution code here...
+  let result = [[], [], [], [], [], [], []];
+
+  arr.forEach(event => {
+    daysOfWeek.forEach((day, idx) => {
+      if (event.includes(day)) {
+        result[idx].push(event);
+      }
+    });
+  });
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,7 +140,7 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
 const characterByIndex = (arr) => {
-  // Solution code here...
+  return arr.map((s, i) => s.charAt(i));
 };
 
 /* ------------------------------------------------------------------------------------------------
