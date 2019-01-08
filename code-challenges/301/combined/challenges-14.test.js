@@ -102,7 +102,10 @@ This data could be could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
 const sortBy = (property, arr) => {
-  return arr.sort((a, b) => a[property] - b[property]);
+  return  arr.sort((a, b) => {
+    if (property === 'price') return a[property] - b[property];
+    return (a[property] < b[property] && -1) || 1;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,7 +121,8 @@ https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
-// Solution code here...
+  const regex = /^https:\/\//
+  return regex.test(url);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -140,8 +144,57 @@ Here is a sample board:
 ];
 ------------------------------------------------------------------------------------------------ */
 
+function helpCheck(testCases) {
+  let winner = false;
+
+  testCases.forEach(c => {
+    if (c.includes('')) return;
+    if (c[0] === c[1] && c[1] === c[2]) {
+      winner = true;
+      return;
+    }
+  });
+
+  return winner;
+}
+
 const detectTicTacToeWin = (board) => {
-  // Solution code here...
+  // test case sqaures
+  const testCases = {
+    backDiagonal: [],
+    forwardDiagonal: [],
+    firstColumn: [],
+    secondColumn: [],
+    thirdColumn: [],
+    firstRow: [],
+    secondRow: [],
+    thirdRow: [],
+  };
+
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+
+      // get diagonals
+      if (i === j) testCases.backDiagonal.push(board[i][j]);
+      if (Math.abs(i -j) === 2 || i === 1 && j === 1 ) testCases.forwardDiagonal.push(board[i][j]);
+
+      // get coumns
+      if (j === 0) testCases.firstColumn.push(board[i][j]);
+      else if (j === 1) testCases.secondColumn.push(board[i][j]);
+      else testCases.thirdColumn.push(board[i][j]);
+
+      // get rows
+      if (i === 0) testCases.firstRow.push(0, board[j]);
+      else if (i === 1) testCases.secondRow.push(board[i][j]);
+      else testCases.thirdRow.push(board[i][j]);
+    }
+  }
+  
+  return helpCheck(Object.values(testCases));
+
+
+
+
 }
 
 /* ------------------------------------------------------------------------------------------------
