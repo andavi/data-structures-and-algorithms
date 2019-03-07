@@ -56,6 +56,21 @@ describe('Linked Linked Insertions', () => {
   it('can insert node before value in middle', () => {
     ll.insertBefore('l', 'e');
     expect(printLL(ll)).toEqual('coderfeel');
+  });
+
+  it('can insert node before first node in list', () => {
+    ll.insertBefore('c', 's');
+    expect(printLL(ll)).toEqual('scoderfeel');
+  });
+
+  it('can insert node after node middle of list', () => {
+    ll.insertAfter('s', 'o');
+    expect(printLL(ll)).toEqual('socoderfeel');
+  });
+
+  it('can insert node after last node of list', () => {
+    ll.insertAfter('l', 'z');
+    expect(printLL(ll)).toEqual('socoderfeelz');
   })
 
 });

@@ -69,11 +69,11 @@ class LinkedList{
   insertBefore(value, newValue) {
     const newNode = new Node(newValue);
     // Andrew - edge case if first new is value
-    if (this.head.value === value) {
-      newNode.next = this.head;
+    let current = this.head;
+    if (current.value === value) {
+      newNode.next = current;
       this.head = newNode;
     }
-    let current = this.head;
     while(current.next) {
       if (current.next.value === value) {
         newNode.next = current.next;
@@ -89,7 +89,7 @@ class LinkedList{
   insertAfter(value, newValue) {
     const newNode = new Node(newValue);
     let current = this.head;
-    while(current.next) {
+    while(current) {
       if (current.value === value) {
         newNode.next = current.next;
         current.next = newNode;
