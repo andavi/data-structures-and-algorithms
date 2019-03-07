@@ -99,6 +99,23 @@ class LinkedList{
       }
     }
   }
+  // Delete first instance of giiven value
+  delete(value) {
+    let current = this.head;
+    // Andrew - edge case first value is it
+    if (current.value === value) {
+      current = current.next;
+      this.head = current;
+    }
+    while(current.next) {
+      if (current.next.value === value) {
+        current.next = current.next.next;
+        return;
+      }
+    }
+  }
 }
+
+
 
 module.exports = LinkedList;

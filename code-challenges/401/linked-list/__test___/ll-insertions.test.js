@@ -71,6 +71,11 @@ describe('Linked Linked Insertions', () => {
   it('can insert node after last node of list', () => {
     ll.insertAfter('l', 'z');
     expect(printLL(ll)).toEqual('socoderfeelz');
-  })
+  });
+
+  it('can delete first node of given value', () => {
+    ll.delete('r');
+    expect(printLL(ll)).toEqual('socodefeelz');
+  });
 
 });
