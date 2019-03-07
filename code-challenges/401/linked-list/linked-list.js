@@ -110,7 +110,8 @@ class LinkedList{
     while(current.next) {
       if (current.next.value === value) {
         current.next = current.next.next;
-        return;
+      } else {
+        current = current.next;
       }
     }
   }

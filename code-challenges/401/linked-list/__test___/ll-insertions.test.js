@@ -76,6 +76,10 @@ describe('Linked Linked Insertions', () => {
   it('can delete first node of given value', () => {
     ll.delete('r');
     expect(printLL(ll)).toEqual('socodefeelz');
+    ll.delete('s');
+    expect(printLL(ll)).toEqual('ocodefeelz');
+    ll.delete('z');
+    expect(printLL(ll)).toEqual('ocodefeel');
   });
 
 });
