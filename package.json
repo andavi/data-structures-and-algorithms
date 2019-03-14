@@ -1,0 +1,22 @@
+{
+  "name": "data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "Daily Code Challenges",
+  "main": "jest.config.js",
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andavi/data-structures-and-algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andavi/data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/andavi/data-structures-and-algorithms#readme",
+  "devDependencies": {
+    "jest": "^24.5.0"
+  }
+}
