@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/andavi/data-structures-and-algorithms.svg?branch=master)](https://travis-ci.com/andavi/data-structures-and-algorithms)
+
 # Linked List Insertions
 Learning how to do simple manipulations on linked lists.
 
