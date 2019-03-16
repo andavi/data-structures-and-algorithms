@@ -52,6 +52,12 @@ describe('Linked Linked Insertions', () => {
     expect(testNegativeK).toThrowError(/negative/);
   });
 
+  it('returns error when length of LL is only one and k is not 0', () => {
+    const oneLL = new LinkedList();
+    oneLL.head = new Node('one');
+    const testOne = () => oneLL.kthFromEnd(1);
+    expect(testOne).toThrowError(/length of one/);
+  });
 
 
 
