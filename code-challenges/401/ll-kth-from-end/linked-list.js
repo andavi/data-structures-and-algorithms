@@ -128,7 +128,7 @@ class LinkedList{
     // get leader k steps ahead of follower
     for (let i = 0; i < k; i++) {
       leader = leader.next;
-      if (leader.next === null) {
+      if (leader === null) {
         if (i === k - 1) {
           throw new LLError('k is equal to the length of LL');
         } else {

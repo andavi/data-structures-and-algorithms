@@ -43,8 +43,8 @@ describe('Linked Linked Insertions', () => {
   });
 
   it('returns error when k is equal to length of LL', () => {
-    const testGreater = () => ll.kthFromEnd(6);
-    expect(testGreater).toThrowError(/equal/);
+    const testEqual = () => ll.kthFromEnd(6);
+    expect(testEqual).toThrowError(/equal/);
   });
 
 });
