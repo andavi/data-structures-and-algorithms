@@ -47,10 +47,9 @@ describe('Linked Linked Insertions', () => {
     expect(testEqual).toThrowError(/equal/);
   });
 
-  it('returns error when length of LL is only one', () => {
-    oneLL = new Node('one');
-    const lengthOne = () => oneLL.kthFromEnd(1);
-    expect(lengthOne).toThrowError(/length of one/);
+  it('returns error when k < 0', () => {
+    const testNegativeK = () => ll.kthFromEnd(-3);
+    expect(testNegativeK).toThrowError(/negative/);
   });
 
 
