@@ -123,12 +123,15 @@ class LinkedList{
 
   // Andrew - find the kth element from the end of the linked list
   kthFromEnd(k) {
+    // negative k edge case
     if (k < 0) {
       throw new LLError('k cannot be negative')
     }
+    // LL length of one with nonzero k edge case
     if (this.head.next === null && k !== 0) {
-      throw new LLError('linked list has length of one')
+      throw new LLError('linked list has length of one and nonzero k')
     }
+
     let leader = this.head;
     let follower = this.head;
     // get leader k steps ahead of follower
@@ -142,6 +145,14 @@ class LinkedList{
         }
       }
     }
+
+    // now leader and follower step in sync
+    while(leader.next !== null) {
+      leader = leader.next;
+      follower = follower.next;
+    }
+
+    return follower.value;
   }
 }
 

@@ -59,7 +59,17 @@ describe('Linked Linked Insertions', () => {
     expect(testOne).toThrowError(/length of one/);
   });
 
-
+  it('returns correct value after passing all edge cases', () => {
+    // const value = ll.kthFromEnd(3);
+    // expect(value).toEqual(3);
+    const results = [];
+    for (let i = 0; i < 6; i++) {
+      results.push(ll.kthFromEnd(i))
+    }
+    results.forEach((value, index) => {
+      expect(value).toEqual(index);
+    })
+  })
 
 
 });
