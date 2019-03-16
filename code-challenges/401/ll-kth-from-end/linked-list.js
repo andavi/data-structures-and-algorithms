@@ -126,6 +126,9 @@ class LinkedList{
     if (k < 0) {
       throw new LLError('k cannot be negative')
     }
+    if (this.head.next === null && k !== 0) {
+      throw new LLError('linked list has length of one')
+    }
     let leader = this.head;
     let follower = this.head;
     // get leader k steps ahead of follower
