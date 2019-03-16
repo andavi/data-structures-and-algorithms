@@ -1,6 +1,6 @@
 'use strict';
 
-const LinkedList = require('../linked-list');
+const LinkedList = require('./.');
 const Node = require('../node');
 
 // helper for printing linked list

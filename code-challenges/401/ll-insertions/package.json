@@ -2,7 +2,7 @@
   "name": "linked-list",
   "version": "1.0.0",
   "description": "",
-  "main": "linked-list.js",
+  "main": "",
   "scripts": {
     "test": "jest --verbose --coverage"
   },
