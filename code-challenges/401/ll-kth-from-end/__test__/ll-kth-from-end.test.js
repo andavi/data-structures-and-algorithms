@@ -37,9 +37,14 @@ describe('Linked Linked Insertions', () => {
   // ACT ---
 
   // ASSERT
-  it('returns error when k is greater than length of LL', () => {
+  it('returns greater than error when k is greater than length of LL', () => {
     const testGreater = () => ll.kthFromEnd(8);
     expect(testGreater).toThrowError(/greater/);
+  });
+
+  it('returns error when k is equal to length of LL', () => {
+    const testGreater = () => ll.kthFromEnd(6);
+    expect(testGreater).toThrowError(/equal/);
   });
 
 });
