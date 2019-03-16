@@ -1,5 +1,10 @@
 'use strict';
 
+function LLError(message) {
+  this.message = message;
+  this.name = 'LinkedListException';
+}
+
 const Node = require('./node');
 
 // Variables
@@ -114,6 +119,40 @@ class LinkedList{
         current = current.next;
       }
     }
+  }
+
+  // Andrew - find the kth element from the end of the linked list
+  kthFromEnd(k) {
+    // negative k edge case
+    if (k < 0) {
+      throw new LLError('k cannot be negative')
+    }
+    // LL length of one with nonzero k edge case
+    if (this.head.next === null && k !== 0) {
+      throw new LLError('linked list has length of one and nonzero k')
+    }
+
+    let leader = this.head;
+    let follower = this.head;
+    // get leader k steps ahead of follower
+    for (let i = 0; i < k; i++) {
+      leader = leader.next;
+      if (leader === null) {
+        if (i === k - 1) {
+          throw new LLError('k is equal to the length of LL');
+        } else {
+          throw new LLError('k is greater than length of LL');
+        }
+      }
+    }
+
+    // now leader and follower step in sync
+    while(leader.next !== null) {
+      leader = leader.next;
+      follower = follower.next;
+    }
+
+    return follower.value;
   }
 }
 
