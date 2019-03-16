@@ -47,4 +47,10 @@ describe('Linked Linked Insertions', () => {
     expect(testEqual).toThrowError(/equal/);
   });
 
+  it('returns error when k < 0', () => {
+    const testNegativeK = () => ll.kthFromEnd(-3);
+    expect(testNegativeK).toThrowError(/negative/);
+  });
+
+
 });

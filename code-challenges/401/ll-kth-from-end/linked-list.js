@@ -123,6 +123,9 @@ class LinkedList{
 
   // Andrew - find the kth element from the end of the linked list
   kthFromEnd(k) {
+    if (k < 0) {
+      throw new LLError('k cannot be negative')
+    }
     let leader = this.head;
     let follower = this.head;
     // get leader k steps ahead of follower
